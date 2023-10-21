@@ -3,7 +3,8 @@ import { getAllAttendances, updateAttendance } from './api';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
-import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const RegisterAttendance = () => {
     const [attendances, setAttendances] = useState([]);
@@ -30,13 +31,18 @@ const RegisterAttendance = () => {
 
     return (
         <div>
-            <Typography variant="h3" component="h1" gutterBottom>
-                出席登録
-            </Typography>
+            <h1>出席登録</h1>
             <List>
                 {attendances.map((attendance, index) => (
                     <ListItem key={index} button onClick={() => toggleAttendance(attendance.name, attendance.status)}>
-                        <ListItemText primary={attendance.name} secondary={attendance.status ? '（出席）' : ''} />
+                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                            {attendance.status && (
+                                <IconButton>
+                                    <CheckCircleIcon style={{ color: 'green' }} />
+                                </IconButton>
+                            )}
+                            <ListItemText primary={attendance.name} />
+                        </div>
                     </ListItem>
                 ))}
             </List>
