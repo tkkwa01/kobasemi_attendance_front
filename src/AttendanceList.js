@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { getAllAttendances } from './api';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 
 const AttendanceList = () => {
     const [attendances, setAttendances] = useState([]);
@@ -7,7 +11,6 @@ const AttendanceList = () => {
     useEffect(() => {
         const fetchData = async () => {
             const data = await getAllAttendances();
-            console.log('Data fetched:', data);
             setAttendances(data.filter((item) => item.status));
         };
         fetchData();
@@ -15,12 +18,16 @@ const AttendanceList = () => {
 
     return (
         <div>
-            <h1>出席者リスト</h1>
-            <ul>
+            <Typography variant="h3" component="h1" gutterBottom>
+                出席者リスト
+            </Typography>
+            <List>
                 {attendances.map((attendance, index) => (
-                    <li key={index}>{attendance.name}</li>
+                    <ListItem key={index} disableRipple>
+                        <ListItemText primary={attendance.name} />
+                    </ListItem>
                 ))}
-            </ul>
+            </List>
         </div>
     );
 };
