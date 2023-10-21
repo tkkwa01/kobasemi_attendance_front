@@ -5,6 +5,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import Typography from '@mui/material/Typography';  // この行を追加
 
 const RegisterAttendance = () => {
     const [attendances, setAttendances] = useState([]);
@@ -31,7 +32,9 @@ const RegisterAttendance = () => {
 
     return (
         <div>
-            <h1>出席登録</h1>
+            <Typography variant="h3" component="h1" gutterBottom>  {/* この行を修正 */}
+                出席登録
+            </Typography>
             <List>
                 {attendances.map((attendance, index) => (
                     <ListItem key={index} button onClick={() => toggleAttendance(attendance.name, attendance.status)}>
