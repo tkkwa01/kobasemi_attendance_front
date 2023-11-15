@@ -2,4 +2,5 @@
 
 ## Screenshots
 
-![capture](https://github.com/tkkwa01/kobasemi_attendance_front/assets/130450932/5aef50f5-d516-441e-b999-333b54bdd728)
+![capture](https://github.com/tkkwa01/kobasemi_attendance_front/assets/130450932/7c47dd9f-2e7a-4dd4-bfc9-60f183d102a5)
+
